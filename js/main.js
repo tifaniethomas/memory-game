@@ -1,6 +1,5 @@
   /*----- constants -----*/
 const PLAYERS = {
-  '0': '',
   '1': 'Player One',
   '-1': 'Player Two'
 }
@@ -29,9 +28,44 @@ document.getElementById('board').addEventListener('click', handleClick)
 playAgainBtn.addEventListener('click', init)
 
   /*----- functions -----*/
+init()
+
+function init() {
+  board = [
+    'cherry', 'cherry', 'cherry', 'cherry', 'grape', 'grape', 'grape', 'grape', 
+    'kiwi', 'kiwi', 'kiwi', 'kiwi', 'orange', 'orange', 'orange', 'orange', 
+    'pineapple', 'pineapple', 'pineapple', 'pineapple', 'watermelon', 'watermelon', 'watermelon', 'watermelon',
+  ]
+  turn = 1
+  winner = null
+  render()
+}
+
+function render() {
+  renderBoard()
+  renderMessage()
+  renderControls()
+  renderScores()
+}
+
+function renderBoard() {
+
+}
+
+function renderControls() {
+
+}
+
+function renderMessage() {
+
+}
+
+function renderScores () {
+  
+}
 
 function handleClick() {
-  console.log(click)
+  console.log('click')
 }
 
   let seconds = 3;
@@ -41,5 +75,5 @@ function countdown() {
     console.log(seconds)
     seconds --;
   }
-    seconds = 3
+  else{ seconds = 3 }
 }
