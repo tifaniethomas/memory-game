@@ -1,3 +1,48 @@
+* {
+    /* height & width now includes border & padding */
+    box-sizing: border-box;
+  }
+
 body {
-    background-color: blue;
+    background-image: url(https://i.imgur.com/L5l601L.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: #22144b;
+    margin: 0;
+    font-family: Helvetica;
+    color: pink;
+    display: flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+header {
+    font-size: 6vmin;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 3.5vmin;
+}
+
+#deck-selector {
+    font-size: 2vmin;
+    background-color: rgba(255, 246, 186 .5);
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(8, 12vmin);
+    grid-template-rows: repeat(3, 18vmin);
+    column-gap: 2vmin;
+    row-gap: 4vmin;
+}
+
+.back {
+    background-image: url('../Memory-Card-Images/Card-Back.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
