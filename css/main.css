@@ -28,11 +28,18 @@ h1 {
 }
 
 #deck-selector {
-    font-size: 2vmin;
-    background-color: rgba(255, 246, 186 .5);
+    font-size: 3vmin;
+    background-color: rgba(255,246,186.5);
+    height: 4vmin;
+    width: 10vmin;
+    position: relative;
+    color: #22144b;
+    text-align: center;
+    margin: -15vmin 0 0 auto; 
 }
 
 #board {
+    margin-top: 13vmin;
     display: grid;
     grid-template-columns: repeat(8, 12vmin);
     grid-template-rows: repeat(3, 18vmin);

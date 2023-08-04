@@ -49,7 +49,7 @@ function render() {
 }
 
 function renderBoard() {
-
+  
 }
 
 function renderControls() {
@@ -61,7 +61,7 @@ function renderMessage() {
 }
 
 function renderScores () {
-  
+
 }
 
 function handleClick() {
