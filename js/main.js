@@ -13,6 +13,12 @@ const FRUITS = {
   'watermelon': '..Memory-Card-Images/Watermelon.svg'
 }
 
+const DECK = [
+  'cherry', 'cherry', 'cherry', 'cherry', 'grape', 'grape', 'grape', 'grape', 
+  'kiwi', 'kiwi', 'kiwi', 'kiwi', 'orange', 'orange', 'orange', 'orange', 
+  'pineapple', 'pineapple', 'pineapple', 'pineapple', 'watermelon', 'watermelon', 'watermelon', 'watermelon',
+]
+
   /*----- state variables -----*/
 let turn, board, scores, winner
 
@@ -28,13 +34,14 @@ document.getElementById('board').addEventListener('click', handleClick)
 playAgainBtn.addEventListener('click', init)
 
   /*----- functions -----*/
-init()
+// init()
 
 function init() {
+  const shuffleDeck = shuffle(DECK) // moved this into the init function so every time the game is re-initialized, the deck is shuffled
   board = [
-    'cherry', 'cherry', 'cherry', 'cherry', 'grape', 'grape', 'grape', 'grape', 
-    'kiwi', 'kiwi', 'kiwi', 'kiwi', 'orange', 'orange', 'orange', 'orange', 
-    'pineapple', 'pineapple', 'pineapple', 'pineapple', 'watermelon', 'watermelon', 'watermelon', 'watermelon',
+    shuffleDeck[0], shuffleDeck[1], shuffleDeck[2], shuffleDeck[3], shuffleDeck[4], shuffleDeck[5], shuffleDeck[6], shuffleDeck[7], 
+    shuffleDeck[8], shuffleDeck[9], shuffleDeck[10], shuffleDeck[11], shuffleDeck[12], shuffleDeck[13], shuffleDeck[14], shuffleDeck[15], 
+    shuffleDeck[16], shuffleDeck[17], shuffleDeck[18], shuffleDeck[19], shuffleDeck[20], shuffleDeck[21], shuffleDeck[22], shuffleDeck[23], 
   ]
   turn = 1
   winner = null
@@ -78,14 +85,16 @@ function countdown() {
   else{ seconds = 3 }
 }
 
-function shuffleDeck() {
-  for (let i = 0; i < deck.length; i++) {
-    let shuffle = Math.floor(Math.random() * (deck.length));
-    let shuffledDeck = deck[i];
-    // assigns cards at idx to temp deck called shuffledDeck (which it will be by the end)
-    deck[i] = deck[shuffle];
-    // shuffles assigns new random index to each card
-    deck[shuffle] = shuffledDeck;
-    // assigns the shuffled deck to shuffledDeck variable
+function shuffle(arr) {
+  const newArray = [...arr]
+  const length = newArray.length
+
+  for (let start = 0; start < length; start++) {
+    const randomPosition = Math.floor((newArray.length - start) * Math.random())
+    const randomItem = newArray.splice(randomPosition, 1)
+
+    newArray.push(...randomItem)
   }
-};
+
+  return newArray
+}
