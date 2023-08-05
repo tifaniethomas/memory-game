@@ -5,12 +5,12 @@ const PLAYERS = {
 }
 
 const FRUITS = {
-  'cherry': '..Memory-Card-Images/Cherry.jpg',
-  'grape': '..Memory-Card-Images/Grape.jpg',
-  'kiwi': '..Memory-Card-Images/Kiwi.jpg',
-  'orange': '..Memory-Card-Images/Orange.jpg',
-  'pineapple': '..Memory-Card-Images/Pineapple.jpg',
-  'watermelon': '..Memory-Card-Images/Watermelon.jpg'
+  'cherry': '..Memory-Card-Images/Cherry.svg',
+  'grape': '..Memory-Card-Images/Grape.svg',
+  'kiwi': '..Memory-Card-Images/Kiwi.svg',
+  'orange': '..Memory-Card-Images/Orange.svg',
+  'pineapple': '..Memory-Card-Images/Pineapple.svg',
+  'watermelon': '..Memory-Card-Images/Watermelon.svg'
 }
 
   /*----- state variables -----*/
@@ -49,7 +49,7 @@ function render() {
 }
 
 function renderBoard() {
-  
+
 }
 
 function renderControls() {

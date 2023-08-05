@@ -9,7 +9,7 @@ body {
     background-position: center;
     background-size: cover;
     background-color: #22144b;
-    margin: 0;
+    margin: 0 0 7vmin 0;
     font-family: 'Josefin Sans', sans-serif;
     color: pink;
     display: flex;
@@ -19,6 +19,7 @@ body {
   }
 
 header {
+    margin-top: 2vmin;
     font-size: 6vmin;
     font-weight: bold;
 }
@@ -28,14 +29,14 @@ h1 {
 }
 
 #deck-selector {
-    font-size: 3vmin;
+    font-size: 2vmin;
     background-color: rgba(155,238,242.5);
     height: 5vmin;
     width: 10vmin;
     position: relative;
     color: #22144b;
     text-align: center;
-    margin: -14.5vmin 0 0 auto; 
+    margin: -16.5vmin 0 0 auto; 
     border-radius: 0 0 15px 15px;
     padding-top: 2vmin;
 }
@@ -50,7 +51,7 @@ h1 {
 }
 
 .back {
-    background-image: url('../Memory-Card-Images/Card-Back.jpg');
+    background-image: url('../Memory-Card-Images/Card-Back.svg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -64,6 +65,7 @@ h1 {
     width:80vmin;
     margin: 2vmin auto;
     font-weight: bold;
+    font-size: 3vmin;
 }
 
 #p1-score {
