@@ -77,3 +77,15 @@ function countdown() {
   }
   else{ seconds = 3 }
 }
+
+function shuffleDeck() {
+  for (let i = 0; i < deck.length; i++) {
+    let shuffle = Math.floor(Math.random() * (deck.length));
+    let shuffledDeck = deck[i];
+    // assigns cards at idx to temp deck called shuffledDeck (which it will be by the end)
+    deck[i] = deck[shuffle];
+    // shuffles assigns new random index to each card
+    deck[shuffle] = shuffledDeck;
+    // assigns the shuffled deck to shuffledDeck variable
+  }
+};
