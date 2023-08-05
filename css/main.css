@@ -10,7 +10,7 @@ body {
     background-size: cover;
     background-color: #22144b;
     margin: 0;
-    font-family: Helvetica;
+    font-family: 'Josefin Sans', sans-serif;
     color: pink;
     display: flex;
     flex-direction:column;
@@ -29,13 +29,15 @@ h1 {
 
 #deck-selector {
     font-size: 3vmin;
-    background-color: rgba(255,246,186.5);
-    height: 4vmin;
+    background-color: rgba(155,238,242.5);
+    height: 5vmin;
     width: 10vmin;
     position: relative;
     color: #22144b;
     text-align: center;
-    margin: -15vmin 0 0 auto; 
+    margin: -14.5vmin 0 0 auto; 
+    border-radius: 0 0 15px 15px;
+    padding-top: 2vmin;
 }
 
 #board {
@@ -52,4 +54,32 @@ h1 {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+#scores {
+    display: flex;
+    flex-direction:row;
+    justify-content: flex-start;
+    align-items: center;
+    width:80vmin;
+    margin: 2vmin auto;
+    font-weight: bold;
+}
+
+#p1-score {
+    width: 40vmin;
+    align-items: center;
+}
+
+#p2-score {
+    width: 40vmin;
+    align-items: center;
+}
+
+button {
+    background-color: pink;
+    color: #22144b;
+    border: 1vmin solid #22144b;
+    border-radius: 12px;
+    padding: 1vmin
 }
