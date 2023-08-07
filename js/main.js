@@ -20,13 +20,12 @@ const DECK = [
 ]
 
   /*----- state variables -----*/
-let turn, board, match, winner, p1Score, p2Score
+let turn, board, firstChoice, secondChoice, winner, p1Score, p2Score, cardsShowing
 
   /*----- cached elements  -----*/
 const messageEl = document.querySelector('h1')
 const playAgainBtn = document.querySelector('button')
 const cardEls = [...document.querySelectorAll('#board > div')]
-const uprightCardEls = document.querySelectorAll('.front')
 const p1ScoreEl = document.getElementById('p1-score')
 const p2ScoreEl = document.getElementById('p2-score')
 
@@ -46,6 +45,9 @@ function init() {
   ]
   p1Score = 0
   p2Score = 0
+  firstChoice = null
+  secondChoice = null
+  cardsShowing = 2
   turn = 1
   winner = null
   render()
@@ -91,12 +93,41 @@ function renderScores () {
 function handleClick(evt) {
   const cardIdx = evt.target.id
   const cardFruit = board[cardIdx]
-  cardEls[cardIdx].classList.remove('back')
-  cardEls[cardIdx].classList.add('front')
-  render()
+  const cardClicked = cardEls[cardIdx]
+  
+  if (cardClicked.classList.contains('front')) return
+
+  cardClicked.classList.remove('back')
+  cardClicked.classList.add('front')
+
+  cardsShowing++
+
+  if (cardsShowing % 2 !== 0) {
+    firstChoice = cardFruit
+  } 
+  else {
+    secondChoice = cardFruit
+  }
+  getMatch(firstChoice, secondChoice)
+  setTimeout(render(), 3000)
 }
 
-  let seconds = 3;
+function getMatch (firstChoice, secondChoice) {
+  if (firstChoice === null || secondChoice === null) return
+  else if (firstChoice === secondChoice) {
+    const addScore = turn === 1 ? p1Score++ : p2Score++
+  } else if (firstChoice !== secondChoice) {
+    cardClicked.classList.remove('front')
+    cardClicked.classList.add('back')
+  }
+  firstChoice = null
+  secondChoice = null
+  turn *= -1
+  
+}
+
+
+let seconds = 3;
 function countdown() {
   if (seconds > 0) {
     setTimeout(countdown, 1000);
