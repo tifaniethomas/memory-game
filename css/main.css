@@ -52,7 +52,7 @@ h1 {
 
 #board > div {
     border: .5vmin solid #22144b;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 .back {
@@ -87,7 +87,7 @@ button {
     background-color: pink;
     color: #22144b;
     border: 1vmin solid #22144b;
-    border-radius: 12px;
+    border-radius: 10px;
     padding: 1vmin
 }
 

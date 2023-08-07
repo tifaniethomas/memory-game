@@ -64,7 +64,6 @@ function renderBoard() {
     if (card.classList.contains('front')) {
       let cardText = board[i]
       let getURL = FRUITS[cardText]
-      // boardEls.className = `${cardText}` << THIS WORKS BUT I'M TRYING SOMETHING ELSE
       card.style.backgroundImage = `url('${getURL}')`
     }
   }
@@ -89,8 +88,12 @@ function renderScores () {
   p2ScoreEl.innerText = `Player Two: ${p2Score}`
 }
 
-function handleClick() {
-  console.log('click')
+function handleClick(evt) {
+  const cardIdx = evt.target.id
+  const cardFruit = board[cardIdx]
+  cardEls[cardIdx].classList.remove('back')
+  cardEls[cardIdx].classList.add('front')
+  render()
 }
 
   let seconds = 3;
