@@ -50,6 +50,11 @@ h1 {
     row-gap: 4vmin;
 }
 
+#board > div {
+    border: .5vmin solid #22144b;
+    border-radius: 10px;
+}
+
 .back {
     background-image: url('../Memory-Card-Images/Card-Back.svg');
     background-size: cover;

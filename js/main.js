@@ -20,21 +20,21 @@ const DECK = [
 ]
 
   /*----- state variables -----*/
-let turn, board, scores, winner
+let turn, board, match, winner, p1Score, p2Score
 
   /*----- cached elements  -----*/
 const messageEl = document.querySelector('h1')
 const playAgainBtn = document.querySelector('button')
 const boardEls = [...document.querySelectorAll('#board > div')]
-const p1Score = document.getElementById('p1-score')
-const p2Score = document.getElementById('p2-score')
+const p1ScoreEl = document.getElementById('p1-score')
+const p2ScoreEl = document.getElementById('p2-score')
 
   /*----- event listeners -----*/
 document.getElementById('board').addEventListener('click', handleClick)
 playAgainBtn.addEventListener('click', init)
 
   /*----- functions -----*/
-// init()
+init()
 
 function init() {
   const shuffleDeck = shuffle(DECK) // moved this into the init function so every time the game is re-initialized, the deck is shuffled
@@ -43,6 +43,8 @@ function init() {
     shuffleDeck[8], shuffleDeck[9], shuffleDeck[10], shuffleDeck[11], shuffleDeck[12], shuffleDeck[13], shuffleDeck[14], shuffleDeck[15], 
     shuffleDeck[16], shuffleDeck[17], shuffleDeck[18], shuffleDeck[19], shuffleDeck[20], shuffleDeck[21], shuffleDeck[22], shuffleDeck[23], 
   ]
+  p1Score = 0
+  p2Score = 0
   turn = 1
   winner = null
   render()
@@ -56,19 +58,26 @@ function render() {
 }
 
 function renderBoard() {
-
+  console.log("Board Is Rendering...")
 }
 
 function renderControls() {
-
+  playAgainBtn.style.visibility = winner ? 'visible' : 'hidden'
 }
 
 function renderMessage() {
-
+  if (winner === 'T') {
+    messageEl.innerText = "It's a tie!"
+  } else if (winner) {
+    messageEl.innerHTML = `${PLAYERS[winner]} won the game!`
+  } else {
+  messageEl.innerHTML = `${PLAYERS[turn]}'s Turn`
+  }
 }
 
 function renderScores () {
-
+  p1ScoreEl.innerText = `Player One: ${p1Score}`
+  p2ScoreEl.innerText = `Player Two: ${p2Score}`
 }
 
 function handleClick() {
