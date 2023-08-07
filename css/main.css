@@ -90,3 +90,9 @@ button {
     border-radius: 12px;
     padding: 1vmin
 }
+
+.front {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

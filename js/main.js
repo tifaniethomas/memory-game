@@ -5,12 +5,12 @@ const PLAYERS = {
 }
 
 const FRUITS = {
-  'cherry': '..Memory-Card-Images/Cherry.svg',
-  'grape': '..Memory-Card-Images/Grape.svg',
-  'kiwi': '..Memory-Card-Images/Kiwi.svg',
-  'orange': '..Memory-Card-Images/Orange.svg',
-  'pineapple': '..Memory-Card-Images/Pineapple.svg',
-  'watermelon': '..Memory-Card-Images/Watermelon.svg'
+  'cherry': 'Memory-Card-Images/Cherry.svg',
+  'grape': 'Memory-Card-Images/Grape.svg',
+  'kiwi': 'Memory-Card-Images/Kiwi.svg',
+  'orange': 'Memory-Card-Images/Orange.svg',
+  'pineapple': 'Memory-Card-Images/Pineapple.svg',
+  'watermelon': 'Memory-Card-Images/Watermelon.svg'
 }
 
 const DECK = [
@@ -25,7 +25,8 @@ let turn, board, match, winner, p1Score, p2Score
   /*----- cached elements  -----*/
 const messageEl = document.querySelector('h1')
 const playAgainBtn = document.querySelector('button')
-const boardEls = [...document.querySelectorAll('#board > div')]
+const cardEls = [...document.querySelectorAll('#board > div')]
+const uprightCardEls = document.querySelectorAll('.front')
 const p1ScoreEl = document.getElementById('p1-score')
 const p2ScoreEl = document.getElementById('p2-score')
 
@@ -37,7 +38,7 @@ playAgainBtn.addEventListener('click', init)
 init()
 
 function init() {
-  const shuffleDeck = shuffle(DECK) // moved this into the init function so every time the game is re-initialized, the deck is shuffled
+  let shuffleDeck = shuffle(DECK) // moved this into the init function so every time the game is re-initialized, the deck is shuffled
   board = [
     shuffleDeck[0], shuffleDeck[1], shuffleDeck[2], shuffleDeck[3], shuffleDeck[4], shuffleDeck[5], shuffleDeck[6], shuffleDeck[7], 
     shuffleDeck[8], shuffleDeck[9], shuffleDeck[10], shuffleDeck[11], shuffleDeck[12], shuffleDeck[13], shuffleDeck[14], shuffleDeck[15], 
@@ -57,8 +58,16 @@ function render() {
   renderScores()
 }
 
-function renderBoard() {
-  console.log("Board Is Rendering...")
+function renderBoard() { 
+  for (let i = 0; i < board.length; i++) {
+    const card = document.getElementById(`${i}`)
+    if (card.classList.contains('front')) {
+      let cardText = board[i]
+      let getURL = FRUITS[cardText]
+      // boardEls.className = `${cardText}` << THIS WORKS BUT I'M TRYING SOMETHING ELSE
+      card.style.backgroundImage = `url('${getURL}')`
+    }
+  }
 }
 
 function renderControls() {
