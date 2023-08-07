@@ -28,6 +28,7 @@ const playAgainBtn = document.querySelector('button')
 const cardEls = [...document.querySelectorAll('#board > div')]
 const p1ScoreEl = document.getElementById('p1-score')
 const p2ScoreEl = document.getElementById('p2-score')
+const cardPair = []
 
   /*----- event listeners -----*/
 document.getElementById('board').addEventListener('click', handleClick)
@@ -94,6 +95,7 @@ function handleClick(evt) {
   const cardIdx = evt.target.id
   const cardFruit = board[cardIdx]
   const cardClicked = cardEls[cardIdx]
+
   
   if (cardClicked.classList.contains('front')) return
 
@@ -104,26 +106,33 @@ function handleClick(evt) {
 
   if (cardsShowing % 2 !== 0) {
     firstChoice = cardFruit
+    cardPair.unshift(cardIdx)
+    cardPair.splice(2, 1)
   } 
   else {
     secondChoice = cardFruit
+    cardPair.splice(1, 1, cardIdx)
+    setTimeout(getMatch(firstChoice, secondChoice), 2000)
   }
-  getMatch(firstChoice, secondChoice)
-  setTimeout(render(), 3000)
-}
+  render()
+  }
 
 function getMatch (firstChoice, secondChoice) {
-  if (firstChoice === null || secondChoice === null) return
-  else if (firstChoice === secondChoice) {
+  if (firstChoice === secondChoice) {
     const addScore = turn === 1 ? p1Score++ : p2Score++
-  } else if (firstChoice !== secondChoice) {
-    cardClicked.classList.remove('front')
-    cardClicked.classList.add('back')
+  } 
+   else if (firstChoice !== secondChoice) {
+    let firstIdx = parseInt(cardPair[0])
+    let secondIdx = parseInt(cardPair[1])
+    cardEls[firstIdx].classList.remove('front')
+    cardEls[firstIdx].removeAttribute('style')
+    cardEls[firstIdx].classList.add('back')
+    cardEls[secondIdx].classList.remove('front')
+    cardEls[secondIdx].removeAttribute('style')
+    cardEls[secondIdx].classList.add('back')
   }
-  firstChoice = null
-  secondChoice = null
   turn *= -1
-  
+  return
 }
 
 
