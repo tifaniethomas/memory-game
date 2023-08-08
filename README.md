@@ -29,7 +29,7 @@ reset board turns all cards over and shuffles them
 icebox ideas:
 let there be more than one set of cards to choose from
 
-<img src="https://i.imgur.com/mMuBGMJ.png" width="450" height="253">
+<img src="https://i.imgur.com/JwCY7dg.png" width="708" height="330">
 
 <h2>How to Install and Play the Game</h2>
 
