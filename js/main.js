@@ -152,10 +152,10 @@ function getMatch (firstChoice, secondChoice) {
 
 function getWinner() { 
   if (p1Score > p2Score) 
-    {return winner = PLAYERS[1]}
+    {winner = PLAYERS[1]}
   else if (p2Score > p1Score)
-    {return winner = PLAYERS[-1]}
-  else {return winner = 'T'}
+    {winner = PLAYERS[-1]}
+  else {winner = 'T'}
 }
 
 
