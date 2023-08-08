@@ -45,12 +45,7 @@ function init() {
       card.removeAttribute('style')
   });
 }
-  let shuffleDeck = shuffle(DECK) 
-  board = [
-    shuffleDeck[0], shuffleDeck[1], shuffleDeck[2], shuffleDeck[3], shuffleDeck[4], shuffleDeck[5], shuffleDeck[6], shuffleDeck[7], 
-    shuffleDeck[8], shuffleDeck[9], shuffleDeck[10], shuffleDeck[11], shuffleDeck[12], shuffleDeck[13], shuffleDeck[14], shuffleDeck[15], 
-    shuffleDeck[16], shuffleDeck[17], shuffleDeck[18], shuffleDeck[19], shuffleDeck[20], shuffleDeck[21], shuffleDeck[22], shuffleDeck[23], 
-  ]
+  board = shuffle(DECK) 
     
   p1Score = 0
   p2Score = 0
