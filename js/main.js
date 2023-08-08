@@ -38,12 +38,20 @@ playAgainBtn.addEventListener('click', init)
 init()
 
 function init() {
-  let shuffleDeck = shuffle(DECK) // moved this into the init function so every time the game is re-initialized, the deck is shuffled
+  if (cardEls[0].classList.contains('front')) {
+    cardEls.forEach(card => {
+      card.classList.remove('front')
+      card.classList.add('back')
+      card.removeAttribute('style')
+  });
+}
+  let shuffleDeck = shuffle(DECK) 
   board = [
     shuffleDeck[0], shuffleDeck[1], shuffleDeck[2], shuffleDeck[3], shuffleDeck[4], shuffleDeck[5], shuffleDeck[6], shuffleDeck[7], 
     shuffleDeck[8], shuffleDeck[9], shuffleDeck[10], shuffleDeck[11], shuffleDeck[12], shuffleDeck[13], shuffleDeck[14], shuffleDeck[15], 
     shuffleDeck[16], shuffleDeck[17], shuffleDeck[18], shuffleDeck[19], shuffleDeck[20], shuffleDeck[21], shuffleDeck[22], shuffleDeck[23], 
   ]
+    
   p1Score = 0
   p2Score = 0
   frontPairs = 0
@@ -97,11 +105,6 @@ function handleClick(evt) {
   const cardFruit = board[cardIdx]
   const cardClicked = cardEls[cardIdx]
   
-  
-  // if (frontPairs === 12) {
-  //   getWinner()
-  //   render()
-  // }
   if (cardClicked.classList.contains('front')) return
 
   cardClicked.classList.remove('back')
@@ -138,7 +141,7 @@ function getMatch (firstChoice, secondChoice) {
       cardEls[firstIdx].removeAttribute('style')
       cardEls[secondIdx].removeAttribute('style')
     }
-    setTimeout(hideCards, 1500)
+    setTimeout(hideCards, 1000)
   }
 
   if (frontPairs === 12) {
