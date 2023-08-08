@@ -20,7 +20,7 @@ const DECK = [
 ]
 
   /*----- state variables -----*/
-let turn, board, firstChoice, secondChoice, winner, p1Score, p2Score, cardsShowing
+let turn, board, firstChoice, secondChoice, winner, p1Score, p2Score, cardsShowing, frontPairs
 
   /*----- cached elements  -----*/
 const messageEl = document.querySelector('h1')
@@ -46,6 +46,7 @@ function init() {
   ]
   p1Score = 0
   p2Score = 0
+  frontPairs = 0
   firstChoice = null
   secondChoice = null
   cardsShowing = 2
@@ -120,7 +121,8 @@ function handleClick(evt) {
 function getMatch (firstChoice, secondChoice) {
   if (firstChoice === secondChoice) {
     const addScore = turn === 1 ? p1Score++ : p2Score++
-  } 
+    frontPairs++
+  }
    else if (firstChoice !== secondChoice) {
     let firstIdx = parseInt(cardPair[0])
     let secondIdx = parseInt(cardPair[1])
@@ -134,8 +136,15 @@ function getMatch (firstChoice, secondChoice) {
     }
     setTimeout(hideCards, 2000)
   }
+  if (frontPairs === 12) {getWinner()}
   turn *= -1
   return
+}
+
+function getWinner() {
+  if (p1Score === p2Score) winner === 'T'
+  else if (p1Score > p2Score) winner === PLAYERS[1]
+  else winner === PLAYERS[-1]
 }
 
 function shuffle(arr) {
