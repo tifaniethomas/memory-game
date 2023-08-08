@@ -81,7 +81,7 @@ function renderMessage() {
   if (winner === 'T') {
     messageEl.innerText = "It's a tie!"
   } else if (winner) {
-    messageEl.innerHTML = `${PLAYERS[winner]} won the game!`
+    messageEl.innerHTML = `${winner} won the game!`
   } else {
   messageEl.innerHTML = `${PLAYERS[turn]}'s Turn`
   }
@@ -138,7 +138,7 @@ function getMatch (firstChoice, secondChoice) {
       cardEls[firstIdx].removeAttribute('style')
       cardEls[secondIdx].removeAttribute('style')
     }
-    setTimeout(hideCards, 2000)
+    setTimeout(hideCards, 1500)
   }
 
   if (frontPairs === 12) {
@@ -150,12 +150,12 @@ function getMatch (firstChoice, secondChoice) {
   return
 }
 
-function getWinner() {
+function getWinner() { 
   if (p1Score > p2Score) 
-    {return winner === PLAYERS[1]}
-  else if (p2 > p1Score)
-    {return winner === PLAYERS[-1]}
-  else {return winner === 'T'}
+    {return winner = PLAYERS[1]}
+  else if (p2Score > p1Score)
+    {return winner = PLAYERS[-1]}
+  else {return winner = 'T'}
 }
 
 
