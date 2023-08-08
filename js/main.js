@@ -96,8 +96,12 @@ function handleClick(evt) {
   const cardIdx = evt.target.id
   const cardFruit = board[cardIdx]
   const cardClicked = cardEls[cardIdx]
-
   
+  
+  // if (frontPairs === 12) {
+  //   getWinner()
+  //   render()
+  // }
   if (cardClicked.classList.contains('front')) return
 
   cardClicked.classList.remove('back')
@@ -136,16 +140,24 @@ function getMatch (firstChoice, secondChoice) {
     }
     setTimeout(hideCards, 2000)
   }
-  if (frontPairs === 12) {getWinner()}
+
+  if (frontPairs === 12) {
+    getWinner(p1Score, p2Score)
+    renderMessage()
+  }
+
   turn *= -1
   return
 }
 
 function getWinner() {
-  if (p1Score === p2Score) winner === 'T'
-  else if (p1Score > p2Score) winner === PLAYERS[1]
-  else winner === PLAYERS[-1]
+  if (p1Score > p2Score) 
+    {return winner === PLAYERS[1]}
+  else if (p2 > p1Score)
+    {return winner === PLAYERS[-1]}
+  else {return winner === 'T'}
 }
+
 
 function shuffle(arr) {
   const newArray = [...arr]
