@@ -138,17 +138,6 @@ function getMatch (firstChoice, secondChoice) {
   return
 }
 
-
-let seconds = 3;
-function countdown() {
-  if (seconds > 0) {
-    setTimeout(countdown, 1000);
-    console.log(seconds)
-    seconds --;
-  }
-  else{ seconds = 3 }
-}
-
 function shuffle(arr) {
   const newArray = [...arr]
   const length = newArray.length
