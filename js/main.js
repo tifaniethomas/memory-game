@@ -112,7 +112,7 @@ function handleClick(evt) {
   else {
     secondChoice = cardFruit
     cardPair.splice(1, 1, cardIdx)
-    setTimeout(getMatch(firstChoice, secondChoice), 2000)
+    getMatch(firstChoice, secondChoice)
   }
   render()
   }
@@ -124,12 +124,15 @@ function getMatch (firstChoice, secondChoice) {
    else if (firstChoice !== secondChoice) {
     let firstIdx = parseInt(cardPair[0])
     let secondIdx = parseInt(cardPair[1])
-    cardEls[firstIdx].classList.remove('front')
-    cardEls[firstIdx].removeAttribute('style')
-    cardEls[firstIdx].classList.add('back')
-    cardEls[secondIdx].classList.remove('front')
-    cardEls[secondIdx].removeAttribute('style')
-    cardEls[secondIdx].classList.add('back')
+    function hideCards(){
+      cardEls[firstIdx].classList.remove('front')
+      cardEls[firstIdx].classList.add('back')
+      cardEls[secondIdx].classList.remove('front')
+      cardEls[secondIdx].classList.add('back')
+      cardEls[firstIdx].removeAttribute('style')
+      cardEls[secondIdx].removeAttribute('style')
+    }
+    setTimeout(hideCards, 2000)
   }
   turn *= -1
   return
