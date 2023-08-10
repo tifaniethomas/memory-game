@@ -20,7 +20,7 @@ const DECK = [
 ]
 
   /*----- state variables -----*/
-let turn, board, firstChoice, secondChoice, winner, p1Score, p2Score, cardsShowing, frontPairs
+let turn, firstChoice, secondChoice, winner, p1Score, p2Score, cardsShowing, frontPairs
 
   /*----- cached elements  -----*/
 const messageEl = document.querySelector('h1')
