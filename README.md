@@ -6,6 +6,8 @@ I used a combination of HTML, CSS, and Javascript to create the gameboard, a dec
 
 This was a wonderful challenge in breaking apart all the pieces that go into building a game and getting them all to work together cohesively. 
 
+<a href src="https://tifaniethomas.github.io/memory-game/"><h2>Click Here to Play the Game!</h2></a>
+
 Memory Game PseudoCode:
 
 4 of each fruit, 6 different fruits for 24 cards total<br>
