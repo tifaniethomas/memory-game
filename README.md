@@ -30,7 +30,7 @@ reset button turns all cards over and shuffles them
 <img src="https://i.imgur.com/JwCY7dg.png" width="708" height="330">
 
 
-https://tifaniethomas.github.io/memory-game/
+<a href src="https://tifaniethomas.github.io/memory-game/"><h2>Click Here to Play the Game!</h2></a>
 
 <h3>Special Thanks</h3>
 Thank you so much to Michael and Victor for being so clear in explaining our lessons leading up to this project. It helped tremendously when the time came to sit down and start from scratch. Also, huge thanks to my group of classmates who were there to bounce ideas off of and have great discussions with.
