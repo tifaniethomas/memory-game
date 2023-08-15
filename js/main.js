@@ -13,6 +13,15 @@ const FRUITS = {
   'watermelon': 'Memory-Card-Images/Watermelon.svg'
 }
 
+const GENRES = {
+  'comedy': 'Memory-Card-Images/Cherry.svg',
+  'romance': 'Memory-Card-Images/Grape.svg',
+  'horror': 'Memory-Card-Images/Kiwi.svg',
+  'action': 'Memory-Card-Images/Orange.svg',
+  'sci-fi': 'Memory-Card-Images/Pineapple.svg',
+  'fantasy': 'Memory-Card-Images/Watermelon.svg'
+}
+
 const DECK = [
   'cherry', 'cherry', 'cherry', 'cherry', 'grape', 'grape', 'grape', 'grape', 
   'kiwi', 'kiwi', 'kiwi', 'kiwi', 'orange', 'orange', 'orange', 'orange', 
